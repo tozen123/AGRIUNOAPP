@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SelectionActivity"
+    android:background="#FFE88C"
+    >
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:padding="20dp"
+
+        android:background="@drawable/rounded_box_upside"
+        android:backgroundTint="#D6A473"
+        >
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:scaleType="fitCenter"
+
+            android:layout_gravity="center">
+
+        </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AGRIUNO"
+            android:layout_below="@id/logo"
+            android:gravity="center"
+            android:textColor="#416D2A"
+
+            android:fontFamily="@font/barabara"
+            android:textSize="18sp"
+            >
+
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/select_title"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#D6A473"
+        android:background="@drawable/full_rounded_box"
+
+        android:padding="30dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginEnd="60dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SELECT A PLANT!"
+            android:layout_below="@id/logo"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+
+            android:fontFamily="@font/barabara"
+            android:textSize="24sp"
+            >
+
+        </TextView>
+
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/select_title"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_margin="16dp"
+
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/buttonPineApple"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="PINEAPPLE"
+            android:layout_margin="8dp"
+            android:backgroundTint="#C07A35"
+            android:background="@drawable/full_rounded_box"
+
+            android:fontFamily="@font/barabara"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+
+            />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="SOON"
+            android:layout_margin="8dp"
+            android:backgroundTint="#C07A35"
+            android:background="@drawable/full_rounded_box"
+            android:clickable="false"
+            android:fontFamily="@font/barabara"
+            android:textSize="18sp"
+            android:textColor="#85FFFFFF"
+
+            />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="SOON"
+            android:layout_margin="8dp"
+            android:backgroundTint="#C07A35"
+            android:background="@drawable/full_rounded_box"
+            android:clickable="false"
+            android:fontFamily="@font/barabara"
+            android:textSize="18sp"
+            android:textColor="#85FFFFFF"
+            />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:text="SOON"
+            android:layout_margin="8dp"
+            android:backgroundTint="#C07A35"
+            android:background="@drawable/full_rounded_box"
+            android:clickable="false"
+            android:fontFamily="@font/barabara"
+            android:textSize="18sp"
+            android:textColor="#85FFFFFF"
+
+            />
+    </GridLayout>
+</RelativeLayout>

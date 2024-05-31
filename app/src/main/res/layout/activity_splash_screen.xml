@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.SplashScreen"
+    android:background="#FFE88C">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/logo"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="200dp"
+        android:layout_centerHorizontal="true">
+
+    </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AGRIUNO"
+        android:layout_below="@id/logo"
+        android:gravity="center"
+        android:textColor="#416D2A"
+
+        android:fontFamily="@font/barabara"
+        android:textSize="28sp"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CRAM TEAM"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="60dp"
+        android:gravity="center"
+        android:textColor="#8D8D8D"
+
+        android:fontFamily="@font/barabara"
+        android:textSize="28sp"
+        >
+
+    </TextView>
+
+</RelativeLayout>

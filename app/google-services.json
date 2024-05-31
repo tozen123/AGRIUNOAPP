@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "370064921324",
+    "firebase_url": "https://databasenpk-default-rtdb.firebaseio.com",
+    "project_id": "databasenpk",
+    "storage_bucket": "databasenpk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370064921324:android:dabaf013129907b8accbc9",
+        "android_client_info": {
+          "package_name": "com.doublehammerstudio.agriuno"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIVyOP9cQnj8hB1ZI4VFNsYnrFCvEo-o4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:370064921324:android:389b58cfa5ea426baccbc9",
+        "android_client_info": {
+          "package_name": "com.doublehammerstudio.agriunoapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIVyOP9cQnj8hB1ZI4VFNsYnrFCvEo-o4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

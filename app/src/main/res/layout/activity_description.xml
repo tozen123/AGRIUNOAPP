@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DescriptionActivity"
+    android:background="#FFE88C"
+    >
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/logo"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true">
+
+    </ImageView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="AGRIUNO"
+        android:layout_below="@id/logo"
+        android:gravity="center"
+        android:textColor="#416D2A"
+
+        android:fontFamily="@font/barabara"
+        android:textSize="18sp"
+        >
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rounded_box"
+        android:backgroundTint="#C07A35"
+        android:padding="40dp"
+        android:orientation="vertical"
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AGRIUNO IS A CUTTING-EDGE ARDUINO-POWERED NPK SOIL MONITORING SYSTEM. IT USES A VARIETY OF SPECIALIZED SENSORS TO MEASURE THE AMOUNTS OF NITROGEN (N), PHOSPHORUS (P), AND POTASSIUM (K)."
+            android:layout_below="@id/logo"
+            android:gravity="center"
+            android:textColor="#FFFFFF"
+
+            android:fontFamily="@font/barabara"
+            android:textSize="18sp"
+
+            android:layout_marginTop="40dp"
+            >
+
+        </TextView>
+
+
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CRAM TEAM"
+
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:textColor="#2C2C2C"
+
+        android:fontFamily="@font/barabara"
+        android:textSize="14sp"
+        android:layout_margin="60dp"
+        >
+
+    </TextView>
+</RelativeLayout>

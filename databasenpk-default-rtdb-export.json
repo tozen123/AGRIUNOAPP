@@ -1,0 +1,41 @@
+{
+  "DashboardDataPineapple": {
+    "BASUD": [
+      null,
+      {
+        "areaOfLand": "3500",
+        "description": "yeah",
+        "name": "manta farm",
+        "ownerName": "naruto",
+        "recording": ""
+      }
+    ],
+    "DAET": [
+      null,
+      {
+        "areaOfLand": "1000",
+        "description": "pineypiney",
+        "name": "BEST PINE",
+        "ownerName": "Juan",
+        "recording": "139.2, 46.4, 69.6"
+      },
+      {
+        "areaOfLand": "2000",
+        "description": "",
+        "name": "Im Pine",
+        "ownerName": "subaru",
+        "recording": "168.2, 58.0, 64.96"
+      }
+    ]
+  },
+  "NPKDevice1": {
+    "Nitrogen": 8.136852,
+    "Phosphorous": 8.53959,
+    "Potassium": 9.102639
+  },
+  "devices": [
+    null,
+    "NPKDevice1",
+    "NPKDevice2"
+  ]
+}

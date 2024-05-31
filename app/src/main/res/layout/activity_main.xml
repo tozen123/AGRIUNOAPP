@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity"
+    android:background="#FFE88C"
+    >
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:padding="20dp"
+
+        android:background="@drawable/rounded_box_upside"
+        android:backgroundTint="#D6A473"
+        >
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:scaleType="fitCenter"
+
+            android:layout_gravity="center">
+
+        </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AGRIUNO"
+            android:layout_below="@id/logo"
+            android:gravity="center"
+            android:textColor="#416D2A"
+
+            android:fontFamily="@font/barabara"
+            android:textSize="18sp"
+            >
+
+        </TextView>
+        <TextView
+            android:id="@+id/device_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AGRIUNO"
+            android:layout_below="@id/logo"
+            android:gravity="center"
+            android:textColor="#416D2A"
+
+            android:fontFamily="@font/barabara"
+            android:textSize="11sp"
+            >
+
+        </TextView>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/header"
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/MeowBottomNav"
+
+
+        >
+    </FrameLayout>
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:layout_marginTop="16dp"
+        android:id="@+id/viewPager"
+        android:layout_below="@id/header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_above="@+id/MeowBottomNav"
+
+        />
+
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/MeowBottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:mbn_circleColor="#C07A35"
+        app:mbn_backgroundBottomColor="#C07A35"
+
+        app:mbn_countBackgroundColor="#ffffff"
+        app:mbn_countTextColor="#ffffff"
+
+        app:mbn_defaultIconColor="#ffffff"
+        app:mbn_rippleColor="#ffffff"
+        app:mbn_selectedIconColor="#ffffff"
+        app:mbn_shadowColor="#1f212121"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

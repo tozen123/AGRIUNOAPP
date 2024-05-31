@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@drawable/full_rounded_box_radius_medium"
+    android:backgroundTint="#FFAC33"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/farmNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:textAllCaps="true"
+        android:textSize="16sp"
+        android:fontFamily="@font/barabara"
+        android:textColor="@android:color/black"/>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/farmDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DESCRIPTION"
+        android:textSize="11sp"
+        android:textColor="#474747"
+        android:layout_below="@+id/farmNameTextView"
+        />
+    <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/farmOwnerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Owner"
+        android:textSize="11sp"
+        android:textColor="#474747"
+        android:layout_below="@+id/farmDescriptionTextView"
+        />
+
+
+</RelativeLayout>

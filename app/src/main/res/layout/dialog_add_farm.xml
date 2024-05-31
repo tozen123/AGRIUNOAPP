@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+
+    >
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ENTER FARM NAME"
+        android:fontFamily="@font/barabara"
+        android:textSize="14sp"
+        android:textColor="#BB631C"/>
+
+    <EditText
+        android:id="@+id/editTextFarmName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:singleLine="true"
+        android:background="@drawable/full_rounded_box_radius_medium"
+        android:backgroundTint="#BB631C"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ENTER FARM DESCRIPTION"
+        android:fontFamily="@font/barabara"
+        android:textSize="14sp"
+        android:textColor="#BB631C"/>
+    <EditText
+        android:id="@+id/editTextFarmDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:singleLine="true"
+        android:background="@drawable/full_rounded_box_radius_medium"
+        android:backgroundTint="#BB631C"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ENTER FARM AREA OF LAND (SQM)"
+        android:fontFamily="@font/barabara"
+        android:textSize="14sp"
+        android:textColor="#BB631C"/>
+    <EditText
+        android:id="@+id/editTextFarmAreaOfLand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:singleLine="true"
+        android:background="@drawable/full_rounded_box_radius_medium"
+        android:backgroundTint="#BB631C"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ENTER FARM OWNER"
+        android:fontFamily="@font/barabara"
+        android:textSize="14sp"
+        android:textColor="#BB631C"/>
+    <EditText
+        android:id="@+id/editTextFarmOwner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="text"
+        android:singleLine="true"
+        android:background="@drawable/full_rounded_box_radius_medium"
+        android:backgroundTint="#BB631C"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+
+</LinearLayout>
