@@ -31,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
+import java.util.Arrays;
 import java.util.Map;
 
 public class ViewFarmActivity extends AppCompatActivity {
@@ -46,7 +47,7 @@ public class ViewFarmActivity extends AppCompatActivity {
     TextView row1Cell141414, row1Cell46000, row1Cell00060, row1CellTotal;
     TextView row2Cell141414, row2Cell46000, row2Cell00060, row2CellTotal;
     TextView row3CellTotal141414, row3CellTotal46000, row3CellTotal0060, row3CellTotalBag;
-    TextView potash, urea, complete, totalC;
+    TextView potash, urea, complete, totalC, reading;
     Button update, delete;
 
     @Override
@@ -73,8 +74,9 @@ public class ViewFarmActivity extends AppCompatActivity {
             Toast.makeText(ViewFarmActivity.this, "Data Loaded Successfully!", Toast.LENGTH_LONG).show();
         }
 
-        update = findViewById(R.id.btnUpdate);
+        reading = findViewById(R.id.reading);
         delete = findViewById(R.id.btnDelete);
+        update = findViewById(R.id.btnUpdate);
 
         potash = findViewById(R.id.PotashTxt);
         urea = findViewById(R.id.ureaTxt);
@@ -205,71 +207,73 @@ public class ViewFarmActivity extends AppCompatActivity {
         nametextView.setText(name);
         desctextView.setText(description);
         areaoflandtextView.setText(areaOfLand);
-
+        reading.setText("Readings: N/A");
         if(!recording.isEmpty())
         {
             double averageNitrogen = Double.parseDouble(recording.split(",")[0].toString().trim());
             double averagePhosphorus = Double.parseDouble(recording.split(",")[1].toString().trim());
             double averagePotassium = Double.parseDouble(recording.split(",")[2].toString().trim());
 
-            //first store the phosphorus in a variable
+            //14-14-14
+            double[] lowest_reading = new double[3];
+            lowest_reading[0] = averageNitrogen;
+            lowest_reading[1] = averagePhosphorus;
+            lowest_reading[2] = averagePotassium;
 
-            double x_value = averagePhosphorus;
-            int b_divider = 50;
-            int c_divider = 2;
+            reading.setText(String.format("Readings: %s, %s, %s", averageNitrogen, averagePhosphorus, averagePotassium));
 
-            double p_percentage = 0.46;
-            double c_percentage = 0.60;
-            double type_fertilizer_percentage = 0.14;
+            double lowest_reading_value = Arrays.stream(lowest_reading).min().getAsDouble();
+            double complete_value = lowest_reading_value / 0.14;
+            complete_value = (complete_value / 50) / 2;
 
-            //get the average readings of npk, then subtract it to the x_value variable
-            double a = averageNitrogen - x_value;
-            double b = averagePhosphorus;
-            double c = averagePotassium - x_value;
+            double rounded_a_value = Double.parseDouble(String.format("%.2f", complete_value));
 
+            row1Cell141414.setText(String.valueOf(rounded_a_value));
+            row2Cell141414.setText(String.valueOf(rounded_a_value));
 
-            // for 14-14-14,
-            double amt_per_ha_b =  (b / type_fertilizer_percentage) ;
-            b = (amt_per_ha_b / b_divider) / c_divider;
+            //46-0-0
+            double urea_value = averagePhosphorus / 0.46;
+            urea_value = (urea_value / 50) / 2;
 
-            double rounded_b_value = Double.parseDouble(String.format("%.1f", b));
+            double rounded_b_value = Double.parseDouble(String.format("%.2f", urea_value));
 
-            //for 46-0-0
-            double amt_per_ha_a =  (a / p_percentage) ;
-            a = (amt_per_ha_a / b_divider) / c_divider;
+            row1Cell46000.setText(String.valueOf(rounded_b_value));
+            row2Cell46000.setText(String.valueOf(rounded_b_value));
 
-            double rounded_a_value = Double.parseDouble(String.format("%.1f", a));
+            //00-00-60
+            double averagePotassium_subtracted = averagePotassium - lowest_reading_value;
+            double potast_value = averagePotassium_subtracted / 0.60;
+            potast_value = (potast_value / 50) / 2;
 
-            //for 0-0-60
-            double amt_per_ha_c = (c / c_percentage);
-            c = Math.abs((amt_per_ha_c / b_divider) / c_divider);
-            double rounded_c_value = Double.parseDouble(String.format("%.1f", c));
+            double rounded_c_value = Double.parseDouble(String.format("%.2f", potast_value));
 
-            double total = a + b + c;
-            double rounded_total_value = Double.parseDouble(String.format("%.1f", total));
-            row1Cell141414.setText(String.valueOf(rounded_b_value));
-            row1Cell46000.setText(String.valueOf(rounded_a_value));
             row1Cell00060.setText(String.valueOf(rounded_c_value));
-            row1CellTotal.setText(String.valueOf(rounded_total_value));
-
-            row2Cell141414.setText(String.valueOf(rounded_b_value));
-            row2Cell46000.setText(String.valueOf(rounded_a_value));
             row2Cell00060.setText(String.valueOf(rounded_c_value));
-            row2CellTotal.setText(String.valueOf(rounded_total_value));
 
-            double total141414 = rounded_b_value + rounded_b_value;
+            double total141414 = rounded_a_value + rounded_a_value;
             row3CellTotal141414.setText(String.valueOf(total141414));
-            double total46000 = rounded_a_value + rounded_a_value;
+
+            double total46000 = rounded_b_value + rounded_b_value;
             row3CellTotal46000.setText(String.valueOf(total46000));
+
             double total00060 = rounded_c_value + rounded_c_value;
             row3CellTotal0060.setText(String.valueOf(total00060));
+
             double finalTotal = total141414 + total46000 + total00060;
             row3CellTotalBag.setText(String.valueOf(finalTotal));
 
-            // Prices per kg
-            double price_per_kg_46000 = 1600 / 50.0 / 1000.0;
-            double price_per_kg_141414 = 1600.90 / 50.0 / 1000.0;
-            double price_per_kg_0060 = 2034.23 / 50.0 / 1000.0;
+            double total = complete_value + urea_value + potast_value;
+            double rounded_total_value = Double.parseDouble(String.format("%.2f", total));
+            row1CellTotal.setText(String.valueOf(rounded_total_value));
+            row2CellTotal.setText(String.valueOf(rounded_total_value));
+
+
+
+
+            //Prices per kg
+            double price_per_kg_46000 = 1600 / 50.0 ;
+            double price_per_kg_141414 = 1600.90 / 50.0 ;
+            double price_per_kg_0060 = 2034.23 / 50.0 ;
 
             // Estimated costs
             double cost_46000 = rounded_a_value * price_per_kg_46000 * 1000;
@@ -277,10 +281,84 @@ public class ViewFarmActivity extends AppCompatActivity {
             double cost_0060 = rounded_c_value * price_per_kg_0060 * 1000;
             double total_cost = cost_46000 + cost_141414 + cost_0060;
 
-            potash.setText(String.format("Muriate of Potash (0-0-60): %s per gram", String.format("%.2f PHP", cost_0060 * 2)));
-            urea.setText(String.format("Urea (Granular) (46-0-0): %s per gram", String.format("%.2f PHP", cost_46000 * 2)));
-            complete.setText(String.format("Complete (14-14-14): %s per gram", String.format("%.2f PHP", cost_141414 * 2)));
-            totalC.setText(String.format("Total Cost: %s", String.format("%.2f PHP", total_cost * 2)));
+
+
+            potash.setText(String.format("Muriate of Potash (0-0-60): %s per 1 sack/bag", String.format("%.2f PHP", cost_0060 * (Integer.valueOf(areaOfLand) / 1000))));
+            urea.setText(String.format("Urea (Granular) (46-0-0): %s per 1 sack/bag", String.format("%.2f PHP", cost_46000 * (Integer.valueOf(areaOfLand) / 1000))));
+            complete.setText(String.format("Complete (14-14-14): %s per 1 sack/bag", String.format("%.2f PHP", cost_141414 * (Integer.valueOf(areaOfLand) / 1000))));
+            totalC.setText(String.format("Total Cost: %s", String.format("%.2f PHP", total_cost * (Integer.valueOf(areaOfLand) / 1000))));
+//            //first store the phosphorus in a variable
+//
+//            double x_value = averagePhosphorus;
+//            int b_divider = 50;
+//            int c_divider = 2;
+//
+//            double p_percentage = 0.46;
+//            double c_percentage = 0.60;
+//            double type_fertilizer_percentage = 0.14;
+//
+//            //get the average readings of npk, then subtract it to the x_value variable
+//            double a = averageNitrogen - x_value;
+//            double b = averagePhosphorus;
+//            double c = averagePotassium - x_value;
+//
+//
+//            // for 14-14-14,
+//            double amt_per_ha_b =  (b / type_fertilizer_percentage) ;
+//            b = (amt_per_ha_b / b_divider) / c_divider;
+//
+//            double rounded_b_value = Double.parseDouble(String.format("%.1f", b));
+//
+//            //for 46-0-0
+//            double amt_per_ha_a =  (a / p_percentage) ;
+//            a = (amt_per_ha_a / b_divider) / c_divider;
+//
+//            double rounded_a_value = Double.parseDouble(String.format("%.1f", a));
+//
+//            //for 0-0-60
+//            double amt_per_ha_c = (c / c_percentage);
+//            c = Math.abs((amt_per_ha_c / b_divider) / c_divider);
+//            double rounded_c_value = Double.parseDouble(String.format("%.1f", c));
+//
+//            double total = a + b + c;
+//            double rounded_total_value = Double.parseDouble(String.format("%.1f", total));
+//            row1Cell141414.setText(String.valueOf(rounded_b_value));
+//            row1Cell46000.setText(String.valueOf(rounded_a_value));
+//            row1Cell00060.setText(String.valueOf(rounded_c_value));
+//            row1CellTotal.setText(String.valueOf(rounded_total_value));
+//
+//            row2Cell141414.setText(String.valueOf(rounded_b_value));
+//            row2Cell46000.setText(String.valueOf(rounded_a_value));
+//            row2Cell00060.setText(String.valueOf(rounded_c_value));
+//            row2CellTotal.setText(String.valueOf(rounded_total_value));
+//
+//            double total141414 = rounded_b_value + rounded_b_value;
+//            row3CellTotal141414.setText(String.valueOf(total141414));
+//            double total46000 = rounded_a_value + rounded_a_value;
+//            row3CellTotal46000.setText(String.valueOf(total46000));
+//            double total00060 = rounded_c_value + rounded_c_value;
+//            row3CellTotal0060.setText(String.valueOf(total00060));
+//            double finalTotal = total141414 + total46000 + total00060;
+//            row3CellTotalBag.setText(String.valueOf(finalTotal));
+//
+//            // Prices per kg
+//            double price_per_kg_46000 = 1600 / 50.0 / 1000.0;
+//            double price_per_kg_141414 = 1600.90 / 50.0 / 1000.0;
+//            double price_per_kg_0060 = 2034.23 / 50.0 / 1000.0;
+//
+//            // Estimated costs
+//            double cost_46000 = rounded_a_value * price_per_kg_46000 * 1000;
+//            double cost_141414 = rounded_b_value * price_per_kg_141414 * 1000;
+//            double cost_0060 = rounded_c_value * price_per_kg_0060 * 1000;
+//            double total_cost = cost_46000 + cost_141414 + cost_0060;
+//
+//            potash.setText(String.format("Muriate of Potash (0-0-60): %s per gram", String.format("%.2f PHP", cost_0060 * 2)));
+//            urea.setText(String.format("Urea (Granular) (46-0-0): %s per gram", String.format("%.2f PHP", cost_46000 * 2)));
+//            complete.setText(String.format("Complete (14-14-14): %s per gram", String.format("%.2f PHP", cost_141414 * 2)));
+//            totalC.setText(String.format("Total Cost: %s", String.format("%.2f PHP", total_cost * 2)));
+
+
+
 
         } else {
             Toast.makeText(ViewFarmActivity.this, "No Recordings Founded.", Toast.LENGTH_LONG).show();

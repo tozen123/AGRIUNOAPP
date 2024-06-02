@@ -52,8 +52,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_margin="28dp"
-            android:padding="28dp"
+            android:layout_margin="5dp"
+            android:padding="8dp"
             android:background="@drawable/full_rounded_box_radius_medium"
             android:backgroundTint="#D7FFFFFF"
 
@@ -200,7 +200,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Suggested Bags of Fertilizer Need"
-                android:layout_below="@id/logo"
+                android:gravity="center"
+                android:textColor="#416D2A"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:layout_margin="10dp"
+                >
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/reading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Readings: "
                 android:gravity="center"
                 android:textColor="#416D2A"
                 android:textStyle="bold"
@@ -221,7 +234,6 @@
                 android:background="@drawable/full_rounded_box_radius_medium"
 
 
-                android:layout_margin="20dp"
                 android:padding="8dp"
                 >
 
@@ -238,14 +250,16 @@
                         <TableLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:stretchColumns="1,2,3,4">
+                            android:stretchColumns="1,2,3,4"
+
+                            >
 
                             <!-- Header Row -->
                             <TableRow>
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Age Of Crops"
+                                    android:text="Age Of Crops \n"
                                     android:padding="8dp"
                                     android:background="@android:color/darker_gray"
                                     android:textStyle="bold"
@@ -254,7 +268,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="14-14-14 (bags/ha)"
+                                    android:text="14-14-14 \n (bags/ha)"
                                     android:padding="8dp"
                                     android:background="@android:color/darker_gray"
                                     android:textStyle="bold"
@@ -263,7 +277,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="46-0-0-0 (bags/ha)"
+                                    android:text="46-0-0-0 \n (bags/ha)"
                                     android:padding="8dp"
                                     android:background="@android:color/darker_gray"
                                     android:textStyle="bold"
@@ -272,7 +286,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="0-0-60 (bags/ha)"
+                                    android:text="0-0-60 \n (bags/ha)"
                                     android:padding="8dp"
                                     android:background="@android:color/darker_gray"
                                     android:textStyle="bold"
@@ -281,7 +295,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Total (bags/ha)"
+                                    android:text="Total\n(bags/ha)"
                                     android:padding="8dp"
                                     android:background="@android:color/darker_gray"
                                     android:textStyle="bold"
@@ -303,7 +317,7 @@
                                 <TextView
                                     android:id="@+id/row1Cell141414"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -312,7 +326,7 @@
                                 <TextView
                                     android:id="@+id/row1Cell46000"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -321,7 +335,7 @@
                                 <TextView
                                     android:id="@+id/row1Cell00060"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -330,7 +344,7 @@
                                 <TextView
                                     android:id="@+id/row1CellTotal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -350,7 +364,7 @@
                                 <TextView
                                     android:id="@+id/row2Cell141414"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -359,7 +373,7 @@
                                 <TextView
                                     android:id="@+id/row2Cell46000"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -368,7 +382,7 @@
                                 <TextView
                                     android:id="@+id/row2Cell00060"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -377,7 +391,7 @@
                                 <TextView
                                     android:id="@+id/row2CellTotal"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -389,7 +403,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="Total no. of bags"
+                                    android:text="Total No. \n of bags"
                                     android:padding="8dp"
                                     android:background="@android:color/white"
                                     android:minWidth="100dp"/>
@@ -397,7 +411,7 @@
                                 <TextView
                                     android:id="@+id/row3CellTotal141414"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -406,7 +420,7 @@
                                 <TextView
                                     android:id="@+id/row3CellTotal46000"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -415,7 +429,7 @@
                                 <TextView
                                     android:id="@+id/row3CellTotal0060"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"
@@ -424,7 +438,7 @@
                                 <TextView
                                     android:id="@+id/row3CellTotalBag"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
+                                    android:layout_height="match_parent"
                                     android:text=""
                                     android:padding="8dp"
                                     android:background="@android:color/white"

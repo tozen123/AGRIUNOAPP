@@ -55,6 +55,7 @@ public class ChooseDeviceActivity extends AppCompatActivity {
             return insets;
         });
         Toast.makeText(ChooseDeviceActivity.this, "Checking For Available Devices..", Toast.LENGTH_SHORT).show();
+        mDialog = new ProgressDialog(ChooseDeviceActivity.this);
 
         device1 = findViewById(R.id.device1Button);
         device2 = findViewById(R.id.device2Button);
@@ -69,7 +70,6 @@ public class ChooseDeviceActivity extends AppCompatActivity {
 
             }
         });
-        mDialog = new ProgressDialog(ChooseDeviceActivity.this);
 
         deviceRefreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
