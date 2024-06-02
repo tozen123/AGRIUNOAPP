@@ -270,23 +270,29 @@ public class ViewFarmActivity extends AppCompatActivity {
 
 
 
-            //Prices per kg
-            double price_per_kg_46000 = 1600 / 50.0 ;
-            double price_per_kg_141414 = 1600.90 / 50.0 ;
-            double price_per_kg_0060 = 2034.23 / 50.0 ;
+            //Prices per kg/bag
+            double price_per_kg_46000 = 1600.00;
+            double price_per_kg_141414 = 1600.90;
+            double price_per_kg_0060 = 2034.23;
 
+            double need = 8 * ((double) Integer.valueOf(areaOfLand) / 10000);
+            Log.d("computation1", "need = " + need);
+            Log.d("computation1", "Integer.valueOf(areaOfLand) = " + Integer.valueOf(areaOfLand));
             // Estimated costs
-            double cost_46000 = rounded_a_value * price_per_kg_46000 * 1000;
-            double cost_141414 = rounded_b_value * price_per_kg_141414 * 1000;
-            double cost_0060 = rounded_c_value * price_per_kg_0060 * 1000;
+            double cost_46000 = rounded_a_value * price_per_kg_46000 * need;
+            double cost_141414 = rounded_b_value * price_per_kg_141414 * need;
+            double cost_0060 = rounded_c_value * price_per_kg_0060 * need;
             double total_cost = cost_46000 + cost_141414 + cost_0060;
 
 
+            //1 hectare = 8 sacks
 
-            potash.setText(String.format("Muriate of Potash (0-0-60): %s per 1 sack/bag", String.format("%.2f PHP", cost_0060 * (Integer.valueOf(areaOfLand) / 1000))));
-            urea.setText(String.format("Urea (Granular) (46-0-0): %s per 1 sack/bag", String.format("%.2f PHP", cost_46000 * (Integer.valueOf(areaOfLand) / 1000))));
-            complete.setText(String.format("Complete (14-14-14): %s per 1 sack/bag", String.format("%.2f PHP", cost_141414 * (Integer.valueOf(areaOfLand) / 1000))));
-            totalC.setText(String.format("Total Cost: %s", String.format("%.2f PHP", total_cost * (Integer.valueOf(areaOfLand) / 1000))));
+
+            //
+            potash.setText(String.format("Muriate of Potash (0-0-60): %s per 1 sack/bag", String.format("%.2f PHP", cost_0060)));
+            urea.setText(String.format("Urea (Granular) (46-0-0): %s per 1 sack/bag", String.format("%.2f PHP", cost_46000 )));
+            complete.setText(String.format("Complete (14-14-14): %s per 1 sack/bag", String.format("%.2f PHP", cost_141414 )));
+            totalC.setText(String.format("Total Cost: %s", String.format("%.2f PHP", total_cost )));
 //            //first store the phosphorus in a variable
 //
 //            double x_value = averagePhosphorus;
