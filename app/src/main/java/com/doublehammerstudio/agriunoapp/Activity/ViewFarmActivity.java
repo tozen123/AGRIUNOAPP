@@ -275,13 +275,13 @@ public class ViewFarmActivity extends AppCompatActivity {
             double price_per_kg_141414 = 1600.90;
             double price_per_kg_0060 = 2034.23;
 
-            double need = 8 * ((double) Integer.valueOf(areaOfLand) / 10000);
+            double need = ((double) Integer.valueOf(areaOfLand) / 10000);
             Log.d("computation1", "need = " + need);
             Log.d("computation1", "Integer.valueOf(areaOfLand) = " + Integer.valueOf(areaOfLand));
             // Estimated costs
-            double cost_46000 = rounded_a_value * price_per_kg_46000 * need;
-            double cost_141414 = rounded_b_value * price_per_kg_141414 * need;
-            double cost_0060 = rounded_c_value * price_per_kg_0060 * need;
+            double cost_46000 = (rounded_a_value * need) * price_per_kg_46000;
+            double cost_141414 = (rounded_b_value * need) * price_per_kg_141414;
+            double cost_0060 = (rounded_c_value  * need) * price_per_kg_0060;
             double total_cost = cost_46000 + cost_141414 + cost_0060;
 
 

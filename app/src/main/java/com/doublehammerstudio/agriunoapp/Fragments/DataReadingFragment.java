@@ -155,6 +155,9 @@ public class DataReadingFragment extends Fragment {
                 mDialog.setMessage("Communicating with the Device...");
                 mDialog.setTitle("Agriuno NPK Device");
                 mDialog.setCancelable(false);
+                mDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+                mDialog.setIndeterminate(false);
+                mDialog.setMax(10);
                 mDialog.show();
 
 
@@ -434,6 +437,11 @@ public class DataReadingFragment extends Fragment {
                 ph.setText(String.format("%.0f", averagePhosphorus));
                 p.setText(String.format("%.0f", averagePotassium));
 
+                mDialog.incrementProgressBy(1);
+                if (mDialog.getProgress() == mDialog.getMax()) {
+                    mDialog.dismiss();
+                }
+
                 Log.d("DataRead1234", "nitrogenDataCount: "  +  nt.getText());
                 Log.d("DataRead1234", "phosporusDataCount: "  +  ph.getText());
                 Log.d("DataRead1234", "potassiumDataCount: "  +  p.getText());
@@ -489,60 +497,6 @@ public class DataReadingFragment extends Fragment {
                 double rounded_total_value = Double.parseDouble(String.format("%.2f", total));
                 row1CellTotal.setText(String.valueOf(rounded_total_value));
                 row2CellTotal.setText(String.valueOf(rounded_total_value));
-//
-//                //first store the phosphorus in a variable
-//
-//                double x_value = averagePhosphorus;
-//                int b_divider = 50;
-//                int c_divider = 2;
-//
-//                double p_percentage = 0.46;
-//                double c_percentage = 0.60;
-//                double type_fertilizer_percentage = 0.14;
-//
-//                //get the average readings of npk, then subtract it to the x_value variable
-//                double a = averageNitrogen - x_value;
-//                double b = averagePhosphorus;
-//                double c = averagePotassium - x_value;
-//
-//
-//                // for 14-14-14,
-//                double amt_per_ha_b =  (b / type_fertilizer_percentage) ;
-//                b = (amt_per_ha_b / b_divider) / c_divider;
-//
-//                double rounded_b_value = Double.parseDouble(String.format("%.1f", b));
-//
-//                //for 46-0-0
-//                double amt_per_ha_a =  (a / p_percentage) ;
-//                a = (amt_per_ha_a / b_divider) / c_divider;
-//
-//                double rounded_a_value = Double.parseDouble(String.format("%.1f", a));
-//
-//                //for 0-0-60
-//                double amt_per_ha_c = (c / c_percentage);
-//                c = Math.abs((amt_per_ha_c / b_divider) / c_divider);
-//                double rounded_c_value = Double.parseDouble(String.format("%.1f", c));
-//
-//                double total = a + b + c;
-//                double rounded_total_value = Double.parseDouble(String.format("%.1f", total));
-//                row1Cell141414.setText(String.valueOf(rounded_b_value));
-//                row1Cell46000.setText(String.valueOf(rounded_a_value));
-//                row1Cell00060.setText(String.valueOf(rounded_c_value));
-//                row1CellTotal.setText(String.valueOf(rounded_total_value));
-//
-//                row2Cell141414.setText(String.valueOf(rounded_b_value));
-//                row2Cell46000.setText(String.valueOf(rounded_a_value));
-//                row2Cell00060.setText(String.valueOf(rounded_c_value));
-//                row2CellTotal.setText(String.valueOf(rounded_total_value));
-//
-//                double total141414 = rounded_b_value + rounded_b_value;
-//                row3CellTotal141414.setText(String.valueOf(total141414));
-//                double total46000 = rounded_a_value + rounded_a_value;
-//                row3CellTotal46000.setText(String.valueOf(total46000));
-//                double total00060 = rounded_c_value + rounded_c_value;
-//                row3CellTotal0060.setText(String.valueOf(total00060));
-//                double finalTotal = total141414 + total46000 + total00060;
-//                row3CellTotalBag.setText(String.valueOf(finalTotal));
 
             } else {
 
